@@ -13,7 +13,7 @@
 ;;(setq default-buffer-file-coding-system 'gb2312)
 ;;(setq default-buffer-file-coding-system 'utf-8)
  ;;终端方式的编码方式
-;;(set-terminal-coding-system 'utf-8)
+(set-terminal-coding-system 'utf-8)
  ;;键盘输入的编码方式
 ;;(set-keyboard-coding-system 'gb2312)
 
