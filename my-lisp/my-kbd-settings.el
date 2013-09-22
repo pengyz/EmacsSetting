@@ -1,8 +1,8 @@
 ;;;;KeyBinding-Setting start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;使用C-x C-m调用M-x
-(global-set-key "\C-x\C-m" 'smex)
-(global-set-key "\C-c\C-m" 'smex)
+(global-set-key (kbd"C-x C-m") 'smex)
+;; (global-set-key (kbd "C-c C-m") 'smex)
 ;;C-k 删除一行
 (global-set-key "\C-k" 'kill-whole-line)
 ;;C-w向后删除一个词

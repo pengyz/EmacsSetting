@@ -29,21 +29,21 @@
 ;;========================================================
 (load "desktop")
 ;;设置desktop的保存路径
-;; (setq desktop-path '("~/.emacs.d/temp/desktop"))
-;; (setq desktop-dirname "~/.emacs.d/temp/desktop")
+;; (setq desktop-path '("~/.emacs.d/temp"))
+;; (setq desktop-dirname "~/.emacs.d/temp")
 ;; (setq desktop-base-file-name ".emacs-desktop")
 ;;设置自动保存
-;;(desktop-save-mode 1)
-(desktop-load-default) 
-(desktop-read) 
+;; (desktop-save-mode 1)
+;; (desktop-load-default) 
+;; (desktop-read) 
 
 ;;开启版本控制
 ;;========================================================
-(setq version-control t)
-(setq kept-new-versions 3)
-(setq delete-old-versions t)
-(setq kept-old-versions 2)
-(setq dired-kept-versions 1)
+;; (setq version-control t)
+;; (setq kept-new-versions 3)
+;; (setq delete-old-versions t)
+;; (setq kept-old-versions 2)
+;; (setq dired-kept-versions 1)
 
 ;;代码折叠
 ;;========================================================
@@ -106,6 +106,7 @@
 ;;Cedit设置
 ;;========================================================
 (global-ede-mode t )
+
 ;;设置browser-kill-ring
 ;;========================================================
 (require 'browse-kill-ring)
@@ -155,10 +156,6 @@
           ;; Enable EDE (Project Management) features
           (global-ede-mode 1)
 
-;; ;;rect-mark设置
-;; (require 'rect-mark)
-
-
 ;;列编辑
 ;;========================================================
 (require 'rect-mark)
@@ -168,7 +165,7 @@
 (global-set-key (kbd "C-c C-M-d") 'delete-rectangle)
 (global-set-key (kbd "C-c C-i") 'string-insert-rectangle)
 (global-set-key (kbd "C-c C-M-i") 'string-rectangle)
-(global-set-key (kbd "C-c C-SPC") 'rm-set-mark)
+(global-set-key (kbd "C-c C-m") 'rm-set-mark)
 
 ;;emms
 ;;========================================================
@@ -251,6 +248,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/smartparens")
 (add-to-list 'load-path "~/.emacs.d/plugins/dash")
 (require 'smartparens-config)
+(smartparens-global-mode)
 
 ;;smex
 ;;========================================================
@@ -266,21 +264,8 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-;;Cygwin
+;;org-mode设置
 ;;========================================================
-;; 加载cygwin 
-;;(setenv "PATH" (concat "D:/Cygwin/bin" (getenv "PATH"))) 
-;;(setq exec-path (cons "D:/Cygwin/bin" exec-path)) 
-;;(require 'cygwin-mount) 
-;;(cygwin-mount-activate) 
-;;(add-hook 'shell-mode-hook 'ansi-color-for-comint-mode-on)
-;(add-hook 'comint-output-filter-functions                                       
-;;                    'shell-strip-ctrl-m nil t)                                                  
-;;(add-hook 'comint-output-filter-functions                                       
-;;                   'comint-watch-for-password-prompt nil t)                                    
-;;(setq explicit-shell-file-name "bash.exe")                                      
-;;;; For subprocesses invoked via the shell                                       
-;;;; (e.g., "shell -c command")                                                   
-;;(setq shell-file-name explicit-shell-file-name) 
+(setq org-startup-indented t)
 
 ;;;;Plugin-Settings end here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -73,7 +73,8 @@
 ;;Key-binding-settings
 (if 'file-exists-p (load-file "~/.emacs.d/my-lisp/my-kbd-settings.el"))
 ;;Shell-settings
-;;(if 'file-exists-p (load-file "~/.emacs.d/my-lisp/my-shell-settings.el"))
+(if (eq system-type 'windows-nt)                             
+(if 'file-exists-p (load-file "~/.emacs.d/my-lisp/my-shell-settings.el"))) 
 ;;Custom-set-variables
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
