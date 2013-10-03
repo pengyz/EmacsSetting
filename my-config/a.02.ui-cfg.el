@@ -1,9 +1,10 @@
 ;;;;UI-Settings start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+
 ;;隐藏工具栏
 (tool-bar-mode -1)
 ;;隐藏菜单栏;
-(menu-bar-mode -1)
+;; (menu-bar-mode -1)
 ;;隐藏滚动条
 (scroll-bar-mode -1)
 ;;允许外部粘
@@ -24,36 +25,13 @@
 ;;设置tab为4个空格的宽度
 (setq default-tab-width 4)
 (setq c-basic-offset 4)
-;;全屏函数
-(defun linux-fullscreen ()
-(interactive)
-(x-send-client-message
-nil 0 nil "_NET_WM_STATE" 32
-'(2 "_NET_WM_STATE_ULLSCREEN" 0))
-)
-;; 最大化-linux
-(defun linux-maximize-frame ()
-  "linux maximize the current frame"
-  (interactive)
-  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_HORZ" 0))
-  (x-send-client-message nil 0 nil "_NET_WM_STATE" 32 '(2 "_NET_WM_STATE_MAXIMIZED_VERT" 0))
-)
-;;根据系统类型最大化
-(defun my-maximize-frame ()
-    "Maximize the current frame for linxu and windows"
-     (interactive)
-	 (if (eq system-type 'windows-nt)
- 	 (run-with-idle-timer 0.1 nil 'w32-send-sys-command 61488)
-;;	 (linux-maximize-frame)
-	 )
-)
 ;;启动emacs时窗口最大化
 (my-maximize-frame)
-;;设置Emacs显示标题（bufferName@yourName-Emacs24.2）
-(setq frame-title-format "%b@Pengyz-Emacs24.2")
+;;设置Emacs显示标题（bufferName@yourName-Emacs24.3）
+(setq frame-title-format "%b@Pengyz-Emacs24.3")
 ;;个人信息设置
 (setq user-full-name "Pengyz")
-(setq user-mail-address "pengyz@tunynet.com")
+(setq user-mail-address "orangekbb@gmail.com")
 ;;鼠标自动避开光标
 (mouse-avoidance-mode 'animate) 
 ;;取消光标闪烁
@@ -62,7 +40,8 @@ nil 0 nil "_NET_WM_STATE" 32
 (transient-mark-mode 1)
 ;;开启括号匹配
 (show-paren-mode 1)
-
+;;设置默认打开路径
+(setq default-directory "E:/workspace")
 ;;;;UI-Settings end   here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
