@@ -9,14 +9,14 @@
 (global-set-key [C-down] 'windmove-down)
 ;;C-w向后删除一个词
 (global-set-key (kbd "C-w") 'backward-kill-word)
-;; C-x C-k 剪切
-(global-set-key (kbd "C-x C-k") 'kill-region)
-;; C-c C-k 复制
-(global-set-key (kbd "C-c C-k") 'kill-ring-save)
+;; C-z C-x 剪切
+(global-set-key (kbd "C-z C-x") 'kill-region)
+;; C-z C-c 复制
+(global-set-key (kbd "C-z C-c") 'kill-ring-save)
 ;;Ctrl-x Ctrl-b ibuffer 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 ;;Ctrl-z 撤销
-(global-set-key (kbd "C-z") 'undo)
+(global-set-key (kbd "C-z C-z") 'undo)
 ;;C-c m设置标记
 (global-set-key (kbd "C-c m") 'set-mark-command)
 ;;F3 : 关闭当前buffer

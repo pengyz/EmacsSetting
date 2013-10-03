@@ -5,7 +5,7 @@
 (tabbar-mode)
 (require 'my-tabbar-settings)
 
-(global-set-key (kbd "C-c C-f") 'tabbar-forward-group)
-(global-set-key (kbd "C-c C-b") 'tabbar-backward-group)
-(global-set-key (kbd "C-c C-p") 'tabbar-forward-tab)
-(global-set-key (kbd "C-c C-n") 'tabbar-backward-tab)
+(global-set-key (kbd "C-z C-f") 'tabbar-forward-group)
+(global-set-key (kbd "C-z C-b") 'tabbar-backward-group)
+(global-set-key (kbd "C-z C-p") 'tabbar-forward-tab)
+(global-set-key (kbd "C-z C-n") 'tabbar-backward-tab)

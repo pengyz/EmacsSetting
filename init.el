@@ -86,6 +86,10 @@
 ;;添加搜索路径
 (add-to-list 'load-path plugin-path)
 
+;;自定义键绑定
+(define-prefix-command 'ctl-z-map)
+(global-set-key (kbd "C-z") 'ctl-z-map)
+
 ;;批量文件加载
 (mapc 'load (directory-files elisp-fun-path t "\\.el$"))
 (mapc 'load (directory-files config-path t "\\.el$"))
@@ -101,7 +105,6 @@
  '(ecb-auto-activate t)
   '(ecb-layout-window-sizes (quote (("left8" (ecb-directories-buffer-name 0.2357142857142857 . 0.2857142857142857) (ecb-sources-buffer-name 0.2357142857142857 . 0.23809523809523808) (ecb-methods-buffer-name 0.2357142857142857 . 0.2857142857142857) (ecb-history-buffer-name 0.2357142857142857 . 0.16666666666666666)))))
  '(ecb-major-modes-show-or-hide (quote ((org-mode))))
- '(ecb-mouse-over-method-node nil)
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2)))
 (custom-set-faces
