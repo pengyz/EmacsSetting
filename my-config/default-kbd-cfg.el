@@ -1,5 +1,11 @@
 ;;;;KeyBinding-Setting start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; C-home到文档开始
+(global-set-key (kbd "<home>") 'beginning-of-buffer)
+;; C-end到文档结尾
+(global-set-key (kbd "<end>") 'end-of-buffer)
+;; ;;C-z h隐藏emacs窗口
+;; (global-set-key (kbd "C-z z") 'suspend-frame)
 ;;替换M ;上的注释
 (global-set-key (kbd "M-;") 'my-comment-dwim-line) 
 ;;各窗口间切换
@@ -19,17 +25,15 @@
 (global-set-key (kbd "C-z C-z") 'undo)
 ;;C-c m设置标记
 (global-set-key (kbd "C-c m") 'set-mark-command)
-;;F3 : 关闭当前buffer
-(global-set-key[(f3)] 'kill-this-buffer)
-;;Ctrl-F3 : 关闭当前窗口
-(global-set-key [(C-f3)] 'delete-window)
-;;Alt-F3 : 关闭当前buffer与当前窗口
-(global-set-key [(M-f3)] (lambda ()
+;;F3 : 关闭当前buffer与当前窗口
+(global-set-key [(f3)] (lambda ()
                              (interactive)
                              (kill-buffer)
                              (delete-window))) 
-
-
+;;Ctrl-F3 : 关闭当buffer
+(global-set-key [(C-f3)] 'kill-this-buffer)
+;;Alt-F3 : 关闭当前buffer
+(global-set-key[(M-f3)] 'delete-window)
 ;;F4 speedbar
 (global-set-key [(f4)] 'speedbar)
 ;;F8 : 当前buffer打开shell
@@ -47,6 +51,3 @@
 (global-set-key [(f10)] 'bookmark-set)
 
 ;;;;KeyBinding-Setting end   here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-

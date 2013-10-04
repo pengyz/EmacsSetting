@@ -1,3 +1,40 @@
+;;路径定义
+(defvar plugin-path "~/.emacs.d/plugins")
+(defvar config-path "~/.emacs.d/my-config")
+(defvar plugin-config-path (concat config-path "/plugin-config"))
+(defvar elisp-fun-path (concat config-path "/elisp-fun"))
+
+;;添加搜索路径
+(add-to-list 'load-path plugin-path)
+
+;;自定义键绑定
+(define-prefix-command 'ctl-z-map)
+(global-set-key (kbd "C-z") 'ctl-z-map)
+
+;;批量文件加载
+(mapc 'load (directory-files elisp-fun-path t "\\.el$"))
+(mapc 'load (directory-files config-path t "\\.el$"))
+(mapc 'load (directory-files plugin-config-path t "\\.el$"))
+
+
+;;Custom-set-variables
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(ecb-layout-name "left5")
+ '(ecb-layout-window-sizes (quote (("left5" (ecb-directories-buffer-name 0.22142857142857142 . 0.2857142857142857) (ecb-sources-buffer-name 0.22142857142857142 . 0.3333333333333333) (ecb-history-buffer-name 0.22142857142857142 . 0.35714285714285715)))))
+ '(ecb-options-version "2.40")
+ '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2)))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;        Emacs24 Settings           ;;;;;;
 ;;;;;;        Author    pengyz           ;;;;;;
@@ -74,42 +111,3 @@
 ;;决定继续优化下emacs的配置，明确组织结构，解决快捷键冲突
 ;;cygwin已经不抱希望了，爱咋咋地吧
 ;;emacs还是需要持续不断的学习和练习。很明显，现在感觉用起来很不爽，到了要改改的时候了。
-
-
-
-;;路径定义
-(defvar plugin-path "~/.emacs.d/plugins")
-(defvar config-path "~/.emacs.d/my-config")
-(defvar plugin-config-path (concat config-path "/plugin-config"))
-(defvar elisp-fun-path (concat config-path "/elisp-fun"))
-
-;;添加搜索路径
-(add-to-list 'load-path plugin-path)
-
-;;自定义键绑定
-(define-prefix-command 'ctl-z-map)
-(global-set-key (kbd "C-z") 'ctl-z-map)
-
-;;批量文件加载
-(mapc 'load (directory-files elisp-fun-path t "\\.el$"))
-(mapc 'load (directory-files config-path t "\\.el$"))
-(mapc 'load (directory-files plugin-config-path t "\\.el$"))
-
-
-;;Custom-set-variables
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(ecb-auto-activate t)
-  '(ecb-layout-window-sizes (quote (("left8" (ecb-directories-buffer-name 0.2357142857142857 . 0.2857142857142857) (ecb-sources-buffer-name 0.2357142857142857 . 0.23809523809523808) (ecb-methods-buffer-name 0.2357142857142857 . 0.2857142857142857) (ecb-history-buffer-name 0.2357142857142857 . 0.16666666666666666)))))
- '(ecb-major-modes-show-or-hide (quote ((org-mode))))
- '(ecb-options-version "2.40")
- '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
