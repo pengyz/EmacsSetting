@@ -1,5 +1,11 @@
 ;;;;KeyBinding-Setting start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
+;;临时记号
+(global-set-key (kbd "C-z t") 'ska-point-to-register)
+(global-set-key (kbd "C-z g") 'ska-jump-to-register)
+;;查找字符
+(global-set-key (kbd "C-z f") 'wy-go-to-char)
+;; %进行括号匹配
+(global-set-key "%" 'match-paren)
 ;; C-home到文档开始
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 ;; C-end到文档结尾
@@ -36,10 +42,10 @@
 (global-set-key[(M-f3)] 'delete-window)
 ;;F4 speedbar
 (global-set-key [(f4)] 'speedbar)
-;;F8 : 当前buffer打开shell
-(global-set-key[(f8)] 'shell)
-;;C-F8 : 在新窗口打开shell
-(global-set-key [(C-f8)] (lambda()
+;;F5 : 当前buffer打开shell
+(global-set-key[(f5)] 'shell)
+;;C-F5 : 在新窗口打开shell
+(global-set-key [(C-f5)] (lambda()
 						   (interactive)
 						   (split-window-below)
 						   (other-window-for-scrolling)

@@ -42,6 +42,8 @@
 (show-paren-mode 1)
 ;;设置默认打开路径
 (setq default-directory "E:/workspace")
+;;设置默认major-mode为org-mode
+(setq default-major-mode 'org-mode)
 ;;;;UI-Settings end   here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
