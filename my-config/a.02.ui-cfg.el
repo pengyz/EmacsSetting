@@ -4,7 +4,7 @@
 ;;隐藏工具栏
 (tool-bar-mode -1)
 ;;隐藏菜单栏;
-;; (menu-bar-mode -1)
+(menu-bar-mode -1)
 ;;隐藏滚动条
 (scroll-bar-mode -1)
 ;;允许外部粘
@@ -27,15 +27,15 @@
 (setq c-basic-offset 4)
 ;;启动emacs时窗口最大化
 (my-maximize-frame)
-;;设置Emacs显示标题（bufferName@yourName-Emacs24.3）
-(setq frame-title-format "%b@Pengyz-Emacs24.3")
+;;设置Emacs显示标题（bufferName@userName-Emacs24.3）
+(setq frame-title-format "%b@pengyz-Emacs24.3")
 ;;个人信息设置
-(setq user-full-name "Pengyz")
+(setq user-full-name "pengyz")
 (setq user-mail-address "orangekbb@gmail.com")
 ;;鼠标自动避开光标
 (mouse-avoidance-mode 'animate) 
 ;;取消光标闪烁
-;;(blink-cursor-mode -1)
+(blink-cursor-mode -1)
 ;;高亮显示要拷贝的内容
 (transient-mark-mode 1)
 ;;开启括号匹配

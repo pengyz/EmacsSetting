@@ -18,6 +18,6 @@ nil 0 nil "_NET_WM_STATE" 32
      (interactive)
 	 (if (eq system-type 'windows-nt)
  	 (run-with-idle-timer 0.1 nil 'w32-send-sys-command 61488)
-	 (linux-maximize-frame)
+;;	 (linux-maximize-frame)
 	 )
 )
