@@ -2,6 +2,15 @@
 ;;临时记号
 (global-set-key (kbd "C-z t") 'ska-point-to-register)
 (global-set-key (kbd "C-z g") 'ska-jump-to-register)
+;;刷新buffer
+(global-set-key (kbd "<f5>") 'refresh-file)
+;;字体放大缩小设置
+;; For Linux
+(global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
+(global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
+ ;; For Windows
+(global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
+(global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 ;;查找字符
 (global-set-key (kbd "C-z f") 'wy-go-to-char)
 ;; %进行括号匹配
@@ -43,7 +52,7 @@
 ;;F4 speedbar
 (global-set-key (kbd "<f4>") 'speedbar)
 ;;F5 : 当前buffer打开shell
-(global-set-key (kbd "<f5>") 'shell)
+;; (global-set-key (kbd "<f5>") 'shell)
 ;;C-F5 : 在新窗口打开shell
 (global-set-key (kbd "C-<f5>") (lambda()
 						   (interactive)

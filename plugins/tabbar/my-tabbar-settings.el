@@ -11,14 +11,14 @@ Return a list of one element based on major mode."
           major-mode '(comint-mode compilation-mode)))
      "Process"
      )
-    ((member (buffer-name)
-             '("*scratch*" "*Messages*"))
-     "Common"
-     )
-    ((member (buffer-name)
-             '("gtd.org" "home.org" "other.org" "study.org" "work.org"))
-     "GTD"
-     )
+    ;; ((member (buffer-name)
+    ;;          '("*scratch*" "*Messages*"))
+    ;;  "Common"
+    ;;  )
+    ;; ((member (buffer-name)
+    ;;          '("gtd.org" "home.org" "other.org" "study.org" "work.org"))
+    ;;  "GTD"
+    ;;  )
     ((eq major-mode 'dired-mode)
      "Dired"
      )
@@ -43,6 +43,14 @@ Return a list of one element based on major mode."
          mode-name
        (symbol-name major-mode))
      ))))
+
+;; 不显示临时buffer
+(setq tabbar-buffer-list-function
+    (lambda ()
+        (remove-if
+          (lambda(buffer)
+             (find (aref (buffer-name buffer) 0) " *"))
+          (buffer-list))))
 
 ;; 设置tabbar外观
 (set-face-attribute 'tabbar-default nil

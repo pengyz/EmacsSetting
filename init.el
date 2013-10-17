@@ -1,17 +1,20 @@
-;;路径定义
+;;define the base path
 (defvar plugin-path "~/.emacs.d/plugins")
 (defvar config-path "~/.emacs.d/my-config")
 (defvar plugin-config-path (concat config-path "/plugin-config"))
 (defvar elisp-fun-path (concat config-path "/elisp-fun"))
 
-;;添加搜索路径
+;;define the default open dir for windows
+(defvar my-windows-default-dir "F:/workspace")
+
+;;add the plugin-path to the load-path
 (add-to-list 'load-path plugin-path)
 
-;;自定义键绑定
+;;define my kbd prefix to use C-z
 (define-prefix-command 'ctl-z-map)
 (global-set-key (kbd "C-z") 'ctl-z-map)
 
-;;批量文件加载
+;;load all the config file frome three path
 (mapc 'load (directory-files elisp-fun-path t "\\.el$"))
 (mapc 'load (directory-files config-path t "\\.el$"))
 (mapc 'load (directory-files plugin-config-path t "\\.el$"))
@@ -23,8 +26,8 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ecb-layout-name "left5")
- '(ecb-layout-window-sizes (quote (("left5" (ecb-directories-buffer-name 0.22142857142857142 . 0.2857142857142857) (ecb-sources-buffer-name 0.22142857142857142 . 0.3333333333333333) (ecb-history-buffer-name 0.22142857142857142 . 0.35714285714285715)))))
+ '(ecb-layout-name "leftright-analyse")
+ '(ecb-layout-window-sizes (quote (("left5" (ecb-directories-buffer-name 0.18543046357615894 . 0.28) (ecb-sources-buffer-name 0.18543046357615894 . 0.34) (ecb-history-buffer-name 0.18543046357615894 . 0.36)) ("leftright-analyse" (ecb-directories-buffer-name 0.1962025316455696 . 0.375) (ecb-sources-buffer-name 0.1962025316455696 . 0.2916666666666667) (ecb-history-buffer-name 0.1962025316455696 . 0.3125) (ecb-methods-buffer-name 0.18354430379746836 . 0.4791666666666667) (ecb-analyse-buffer-name 0.18354430379746836 . 0.5)) ("left-symboldef" (ecb-directories-buffer-name 0.22142857142857142 . 0.2857142857142857) (ecb-sources-buffer-name 0.22142857142857142 . 0.3333333333333333) (ecb-history-buffer-name 0.22142857142857142 . 0.35714285714285715)))))
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2)))
 (custom-set-faces

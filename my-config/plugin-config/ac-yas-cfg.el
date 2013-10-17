@@ -2,9 +2,10 @@
 ;;========================================================
 (add-to-list 'load-path (concat plugin-path "/yasnippet"))
 (require 'yasnippet)
-(yas-load-directory (concat plugin-path "/snippets"))
+(yas-load-directory (concat plugin-path "/yasnippet/snippets"))
 (yas-global-mode 1)
-(yas-minor-mode-on)
+;;yas启用ido列表模式
+;; (menu-function-10)
 ;;设置auto-complete-mode
 ;;========================================================
 (add-to-list 'load-path (concat plugin-path "/auto-complete"))

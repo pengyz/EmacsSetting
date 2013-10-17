@@ -17,10 +17,13 @@
 
 ;; Enable EDE (Project Management) features
 (global-ede-mode 1)
-
-
-
-
+;;下划线标明函数
+(global-semantic-decoration-mode 1)
+;;当前函数高亮
+(global-semantic-highlight-func-mode 1)
 
 ;; (smart-tabs-advice vhdl-indent-line vhdl-basic-offset)
 ;;     (setq vhdl-indent-tabs-mode t)
+
+
+

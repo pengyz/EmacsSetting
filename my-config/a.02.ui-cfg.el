@@ -1,61 +1,65 @@
 ;;;;UI-Settings start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-
-;;隐藏工具栏
+;;disable the tool bar
 (tool-bar-mode -1)
-;;隐藏菜单栏;
-(menu-bar-mode -1)
-;;隐藏滚动条
+;; disable menu bar if in termnal
+(if (and 
+	 (not (eq window-system 'x))
+	 (not (eq window-system 'w32)))
+	(menu-bar-mode -1))
+;;disable scroll bar
 (scroll-bar-mode -1)
-;;允许外部粘
+;;enable clipboard
 (setq x-select-enable-clipboard t)
-;;启用鼠标
+;;use the mouse
 (xterm-mouse-mode t)
 (mouse-wheel-mode t)
-;;开启图片浏览
+;;enable to show image 
 (auto-image-file-mode)
-;;禁用启动信息
+;;don't show the startup info
 (setq inhibit-startup-message t)
-;;显示行号
+;;display line-num
 (global-linum-mode 'linum-mode)
-;;以 y/n代表 yes/no
+;;use y/n instad
 (fset 'yes-or-no-p 'y-or-n-p) 
-;;开启语法高亮
+;;open the code color
 (global-font-lock-mode 1)
-;;设置tab为4个空格的宽度
+;;set 4 tab width
 (setq default-tab-width 4)
 (setq c-basic-offset 4)
-;;启动emacs时窗口最大化
+;;maximize frame when open
 (my-maximize-frame)
-;;设置Emacs显示标题（bufferName@userName-Emacs24.3）
+;;set frame title（bufferName@userName-Emacs24.3）
 (setq frame-title-format "%b@pengyz-Emacs24.3")
-;;个人信息设置
+;;set user info
 (setq user-full-name "pengyz")
 (setq user-mail-address "orangekbb@gmail.com")
-;;鼠标自动避开光标
+;;mouse avoid the cursor
 (mouse-avoidance-mode 'animate) 
-;;取消光标闪烁
+;;disable the cursor blink
 (blink-cursor-mode -1)
-;;高亮显示要拷贝的内容
+;;high light the copy 
 (transient-mark-mode 1)
 ;;开启括号匹配
 (show-paren-mode 1)
-;;设置默认打开路径
-(setq default-directory "E:/workspace")
-;;设置默认major-mode为org-mode
+;;set the default open dir just for windowsf
+(if (eq window-system 'w32)
+	(setq default-directory my-windows-default-dir))
+;;set the default major mode to org-mode
 (setq default-major-mode 'org-mode)
 ;;;;UI-Settings end   here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
+
 ;;;;Time-Settings start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;启用时间显示设置
+;;enable the time display
 (display-time-mode 1)
-;;时间使用24小时制
+;;use the 24 hours
 (setq display-time-24hr-format t)
-;;时间显示包括日期和具体时间
+;;display the time detail
 (setq display-time-day-and-date t)
-;;时间的变化频率
+;;set the fresh time
 (setq display-time-interval 10)
 
 
