@@ -5,7 +5,10 @@
 (defvar elisp-fun-path (concat config-path "/elisp-fun"))
 
 ;;define the default open dir for windows
-(defvar my-windows-default-dir "F:/workspace")
+(defvar my-windows-default-dir "F:/")
+
+;;define the default org-publish project path
+(defvar org-project-base "F:/Helpers/Xajh/")
 
 ;;add the plugin-path to the load-path
 (add-to-list 'load-path plugin-path)
@@ -26,16 +29,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(ecb-layout-name "leftright-analyse")
- '(ecb-layout-window-sizes (quote (("left5" (ecb-directories-buffer-name 0.18543046357615894 . 0.28) (ecb-sources-buffer-name 0.18543046357615894 . 0.34) (ecb-history-buffer-name 0.18543046357615894 . 0.36)) ("leftright-analyse" (ecb-directories-buffer-name 0.1962025316455696 . 0.375) (ecb-sources-buffer-name 0.1962025316455696 . 0.2916666666666667) (ecb-history-buffer-name 0.1962025316455696 . 0.3125) (ecb-methods-buffer-name 0.18354430379746836 . 0.4791666666666667) (ecb-analyse-buffer-name 0.18354430379746836 . 0.5)) ("left-symboldef" (ecb-directories-buffer-name 0.22142857142857142 . 0.2857142857142857) (ecb-sources-buffer-name 0.22142857142857142 . 0.3333333333333333) (ecb-history-buffer-name 0.22142857142857142 . 0.35714285714285715)))))
+ '(ecb-layout-name "my-left-analyse")
+ '(ecb-layout-window-sizes (quote (("my-left-analyse" (ecb-methods-buffer-name 0.15822784810126583 . 0.375) (ecb-sources-buffer-name 0.15822784810126583 . 0.2916666666666667) (ecb-analyse-buffer-name 0.15822784810126583 . 0.3125)) ("my-left-speedbar" (ecb-sources-buffer-name 0.189873417721519 . 0.2708333333333333) (ecb-methods-buffer-name 0.189873417721519 . 0.3958333333333333) (ecb-speedbar-buffer-name 0.189873417721519 . 0.3125)) ("my-right-speedbar" (ecb-sources-buffer-name 0.23417721518987342 . 0.2708333333333333) (ecb-speedbar-buffer-name 0.23417721518987342 . 0.2708333333333333) (ecb-methods-buffer-name 0.23417721518987342 . 0.4375)))))
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -105,7 +102,7 @@
 ;;;;;;        Emacs24 Settings           ;;;;;;
 ;;;;;;        Author    pengyz           ;;;;;;
 ;;;;;;        Time   2013.10.3           ;;;;;;
-;;;;;;        version    0.0.4           ;;;;;;
+;;;;;;        version    0.0.5           ;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;-----------------------------------------------------------------------------------------
@@ -114,3 +111,23 @@
 ;;决定继续优化下emacs的配置，明确组织结构，解决快捷键冲突
 ;;cygwin已经不抱希望了，爱咋咋地吧
 ;;emacs还是需要持续不断的学习和练习。很明显，现在感觉用起来很不爽，到了要改改的时候了。
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;;;;        Emacs24 Settings           ;;;;;;
+;;;;;;        Author    pengyz           ;;;;;;
+;;;;;;        Time  2013.10.20           ;;;;;;
+;;;;;;        version    0.0.4           ;;;;;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;-----------------------------------------------------------------------------------------
+;; Sun Oct 20 21:55:31 2013
+;; 修改了快捷键冲突的情况,现在感觉还好.
+;; 在学windows驱动编程,ide没配置明白,想用emacs来写,如果能配置emacs的shell可以调用msbuild编译,就更好了.
+;; 刚才添加了wdk的inc路径到semantic,可以分析了,但是补全有点问题,可以用semantic补全,但是没办法用autocomplete的,是不是ac配置上还有什么问题```
+;; cc-mode中的注释很不爽,无法自动判断区域注释还是行注释.
+;; 装了cscope和xcscope,cscope是在cygwin中make install安装的,但是现在都不会用.
+;; semantic的分析有时候很傻,能不能做到像vs一样的可以方便地进行代码定义等等的跳转?还是要借助cscope?cscope如何与ecb整合?
+;; cc-mode的代码折叠用什么插件好?以前用了hs-mode,但是感觉不是很顺手,用的也很少,折叠不够智能,只能在函数签名上折叠.
+;; 矩形编辑还是不太顺手,如果能和正常的区域编辑进行一定的整合就好多了.
+(put 'erase-buffer 'disabled nil)

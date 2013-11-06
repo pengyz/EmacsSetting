@@ -4,14 +4,12 @@
 (require 'yasnippet)
 (yas-load-directory (concat plugin-path "/yasnippet/snippets"))
 (yas-global-mode 1)
-;;yas启用ido列表模式
-;; (menu-function-10)
 ;;设置auto-complete-mode
 ;;========================================================
 (add-to-list 'load-path (concat plugin-path "/auto-complete"))
 (add-to-list 'load-path (concat plugin-path "/popup"))
-;;(require 'auto-complete)
-(require 'auto-complete-config)
+(require 'auto-complete)
+(require 'auto-complete-config)		
 ;;设置字典路径
 (add-to-list 'ac-dictionary-directories (concat plugin-path "/auto-complete/ac-dict"))
 ;;使用增强列表
@@ -26,6 +24,19 @@
 ;;使用帮助模式
 (setq ac-use-quick-help t)
 (setq ac-quick-help-delay 1.0)
+;;开启ac-dwin
+(setq ac-dwim t)
+;;添加ac补全源
+(set-default 'ac-sources
+			 '(ac-source-semantic ;;ac使用semantic的分析结果
+			   ac-source-yasnippet
+			   ac-source-abbrev
+			   ac-source-words-in-buffer
+			   ac-source-words-in-all-buffer
+			   ac-source-imenu
+			   ac-source-files-in-current-dir
+			   ac-source-filename))
+
 ;;yas-ac设置
 (defface ac-yasnippet-candidate-face
   '((t (:background "sandybrown" :foreground "black")))

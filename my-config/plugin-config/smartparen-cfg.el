@@ -3,6 +3,5 @@
 (add-to-list 'load-path (concat plugin-path "/smartparens"))
 (add-to-list 'load-path (concat plugin-path "/dash"))
 (require 'smartparens-config)
-(add-hook 'lisp-mode-hook
-(lambda() (smartparens-mode)))
-;; (smartparens-global-mode)
+;; enable smartpen in cc-mode
+(smartparens-global-mode)

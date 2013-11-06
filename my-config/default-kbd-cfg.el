@@ -1,9 +1,11 @@
 ;;;;KeyBinding-Setting start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Additional kbd
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;临时记号
 (global-set-key (kbd "C-z t") 'ska-point-to-register)
 (global-set-key (kbd "C-z g") 'ska-jump-to-register)
-;;刷新buffer
-(global-set-key (kbd "<f5>") 'refresh-file)
 ;;字体放大缩小设置
 ;; For Linux
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
@@ -28,29 +30,37 @@
 (global-set-key (kbd "C-<right>") 'windmove-right)
 (global-set-key (kbd "C-<up>") 'windmove-up)
 (global-set-key (kbd "C-<down>") 'windmove-down)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;kbd change default
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;C-w向后删除一个词
 (global-set-key (kbd "C-w") 'backward-kill-word)
-;; C-z C-x 剪切
-(global-set-key (kbd "C-z C-x") 'kill-region)
-;; C-z C-c 复制
-(global-set-key (kbd "C-z C-c") 'kill-ring-save)
 ;;Ctrl-x Ctrl-b ibuffer 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
-;;Ctrl-z 撤销
+;;C-z C-z 撤销
 (global-set-key (kbd "C-z C-z") 'undo)
-;;C-c m设置标记
-(global-set-key (kbd "C-c m") 'set-mark-command)
+;;C-z space设置标记
+(global-set-key (kbd "C-z <SPC>") 'set-mark-command)
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;Fn Settings
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;F3 : 关闭当前buffer与当前窗口
 (global-set-key (kbd "<f3>") (lambda ()
                              (interactive)
                              (kill-buffer)
-                             (delete-window))) 
+                             (delete-window)))
 ;;Ctrl-F3 : 关闭当buffer
 (global-set-key (kbd "C-<f3>") 'kill-this-buffer)
 ;;Alt-F3 : 关闭当前buffer
 (global-set-key (kbd "M-<f3>") 'delete-window)
 ;;F4 speedbar
 (global-set-key (kbd "<f4>") 'speedbar)
+;;刷新buffer
+(global-set-key (kbd "<f5>") 'refresh-file)
 ;;F5 : 当前buffer打开shell
 ;; (global-set-key (kbd "<f5>") 'shell)
 ;;C-F5 : 在新窗口打开shell
@@ -58,14 +68,12 @@
 						   (interactive)
 						   (split-window-below)
 						   (other-window-for-scrolling)
-						   (shell)
-						   ))
+						   (shell)))
 ;;F6 : org-publish
 (global-set-key (kbd "<f6>") 'org-publish)
 ;;F17：添加当前页到书签中
 (global-set-key (kbd "<f7>") 'bookmark-set)
 ;;C-F7：列举我的书签
 (global-set-key (kbd "C-<f7>") 'list-bookmarks)
-
 
 ;;;;KeyBinding-Setting end   here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -6,10 +6,9 @@
 (require 'emms-source-playlist)
 
 (if (equal system-type 'windows-nt)
-	(setq exec-path (append exec-path '("E:/我的软件/MPlayer for Windows")))
-)
+	(setq exec-path (append exec-path '("D:/常用软件/SMPlayer/mplayer"))))
 
-(emms-standard)
+(emms-all)
 (emms-default-players)
 
 
@@ -28,9 +27,9 @@
 (global-set-key (kbd "C-c e >") 'emms-seek-forward)
 (global-set-key (kbd "C-c e <") 'emms-seek-backward)
 ;; these keys maps were derivations of above keybindings
-(global-set-key (kbd "C-c e S") (lambda () "加载W:/Music，显示播放列表并暂停" 
+(global-set-key (kbd "C-c e S") (lambda () "加载D:\歌曲，显示播放列表并暂停" 
 						 (interactive)
-						 (emms-play-directory-tree "E:/Music")
+						 (emms-play-directory-tree "D:/歌曲")
 						 (emms-playlist-mode-go)
 						 (emms-pause)))
 (global-set-key (kbd "C-c e g") 'emms-playlist-mode-go)

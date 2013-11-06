@@ -2,7 +2,6 @@
 (defun qiang-font-existsp (font)
   (if (null (x-list-fonts font))
       nil t))
-
 ;;设置字体列表
 (defvar font-list '("Microsoft Yahei" "文泉驿等宽微米黑" "黑体" "新宋体" "宋体"))
 (require 'cl) ;; find-if is in common list package
@@ -50,4 +49,4 @@ If set/leave chinese-font-size to nil, it will follow english-font-size"
 ;;字体设置
 (qiang-set-font
  '("Consolas" "Monaco" "DejaVu Sans Mono" "Monospace" "Courier New") ":pixelsize=15"
- '("Microsoft Yahei" "文泉驿等宽微米黑" "黑体" "新宋体" "宋体"))
+ '("文泉驿等宽微米黑" "Microsoft Yahei" "黑体" "新宋体" "宋体"))

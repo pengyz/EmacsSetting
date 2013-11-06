@@ -22,7 +22,5 @@
  ;;读取或写入文件名的编码方式
 (if (eq system-type 'windows-nt)
     (setq file-name-coding-system 'gbk))
-;;text 模式
-;;(default-major-mode 'text-mode)
 
 ;;;; Font And Coding Settings end here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

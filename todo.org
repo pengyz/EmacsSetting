@@ -1,0 +1,25 @@
+* 前言
+Sat Oct 19 22:46:57 2013
+emacs用了好久,终于有某些地方得到了实惠,比如说org记笔记...这个貌似是暂时唯一的"实惠"了.
+现在正在跟着郁金香的视频在学习windows驱动开发.对vs2010很不爽.虽然是模拟了emacs操作,毕竟没有学到精髓.所以突然想结合vs,使用emacs做驱动开发的ide.这样来看,现在的emacs配置似乎就相当不够了.自己数了下,有很多东西需要配置和安装,现在还很难一步到位,所以做个TODO,
+* List
+** DONE 安装cygwin的完整版,因为一些工具依赖于它
+CLOSED: [2013-10-30 星期三 20:16]
+- CLOSING NOTE [2013-10-30 星期三 20:16] \\
+  已安装
+** TODO 安装cscope
+** TODO 配置emacs使用cscope,配置相应快捷键达到代码跳转的功能
+** DONE EDET还需要一些额外配置来识别WDK头文件
+CLOSED: [2013-10-30 星期三 20:17]
+- CLOSING NOTE [2013-10-30 星期三 20:17] \\
+  已完成，但是不是太完美。
+  semantic本身在autoload的时候会覆盖VC的路径设置，按照百度上的方法弄了下，没有弄好。
+  emacs24自带了cedet，和23版本的安装版在一些函数功能上有所不同。
+** DONE emacs和vs2010的整合
+CLOSED: [2013-10-30 星期三 20:19]
+- CLOSING NOTE [2013-10-30 星期三 20:19] \\
+  参照网上的配置，结合emacs server和VS2010的外部工具，现在emacs可以很好地和VS2010配合工作。
+  不过还是感觉emacs在VC编程上比不上VS顺手，毕竟新版本的VS在一些功能上远比emacs的yasnippet，auto-complete来的犀利。
+  emacs通过定制auto-complete,配合cedet的语法解析结果，肯定也可以完成这个功能，但是这个需要以后有时间慢慢折腾了。
+
+

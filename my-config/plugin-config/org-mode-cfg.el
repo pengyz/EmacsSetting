@@ -5,19 +5,17 @@
 ;;中文自动折行
 (add-hook 'org-mode-hook (lambda () 
 						   (setq truncate-lines nil)
-))
+							(show-paren-mode -1)))
 ;;默认开启indent模式
 (setq org-startup-indented t)
 ;;设置tudo item记录
 (setq org-log-done 'time)
 (setq org-log-done 'note)
-;;变量定义
-(defvar org-project-base "E:/workspace/ZX2")
 ;;publish具体设置
 (setq org-publish-project-alist'(
 								 ("note-txt"
-								  :base-directory "E:/workspace/ZX2/doc/org"
-								  :publishing-directory "E:/workspace/ZX2/doc/org-publish/txt"
+								  :base-directory (concat org-project-base "doc/org")
+								  :publishing-directory (concat org-project-base "doc/org-publish/txt")
 								  :base-extension "org"
 								  :recursive t
 								  :publishing-function org-publish-org-to-ascii
@@ -25,8 +23,8 @@
 								  :index-title "目录"
 								  :section-numbers t)
 								 ("note-org"
-								  :base-directory "E:/workspace/ZX2/doc/org"
-								  :publishing-directory "E:/workspace/ZX2/doc/org-publish/html"
+								  :base-directory (concat org-project-base "doc/org")
+								  :publishing-directory (concat org-project-base "doc/org-publish/html")
 								  :base-extension "org"
 								  :recursive t
 								  :publishing-function org-publish-org-to-html
@@ -37,8 +35,8 @@
 								  :section-numbers nil
 								  :style "<link rel=\"stylesheet\" href=\"./style/emacs.css\" type=\"text/css\"/>")
 								 ("note-static"
-								  :base-directory "E:/workspace/ZX2/doc/org"
-								  :publishing-directory  "E:/workspace/ZX2/doc/org-publish/attachment"
+								  :base-directory (concat org-project-base "doc/org")
+								  :publishing-directory  (concat org-project-base "doc/org-publish/attachment")
 								  :recursive t
 								  :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|swf\\|zip\\|gz\\|txt\\|el"
 								  :publishing-function org-publish-attachment)

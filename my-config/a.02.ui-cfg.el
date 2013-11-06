@@ -13,8 +13,9 @@
 (setq x-select-enable-clipboard t)
 ;;use the mouse
 (xterm-mouse-mode t)
-(mouse-wheel-mode t)
-;;enable to show image 
+;;unable wheel yank
+(mouse-wheel-mode t);;enable to show image 
+;;enable imagefile mode
 (auto-image-file-mode)
 ;;don't show the startup info
 (setq inhibit-startup-message t)

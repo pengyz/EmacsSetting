@@ -82,7 +82,7 @@
 (defgroup setup-cygwin nil
   "Set up Emacs to use Cygwin.")
 
-(defcustom cygwin-root-directory "E:/CodeEnvironment/cygwin/"
+(defcustom cygwin-root-directory "C:/cygwin/"
   "Root directory of Cygwin installation.
 It should have subdirectories `bin' and `usr/info'.
 Subdirectory `bin' should have file `bin/bash.exe'."
