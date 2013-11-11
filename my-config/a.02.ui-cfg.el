@@ -1,4 +1,4 @@
-;;;;UI-Settings start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;UI-Settings ================================================================
 
 ;;disable the tool bar
 (tool-bar-mode -1)
@@ -41,19 +41,13 @@
 (blink-cursor-mode -1)
 ;;high light the copy 
 (transient-mark-mode 1)
-;;开启括号匹配
+;;show parent match
 (show-paren-mode 1)
 ;;set the default open dir just for windowsf
 (if (eq window-system 'w32)
 	(setq default-directory my-windows-default-dir))
 ;;set the default major mode to org-mode
 (setq default-major-mode 'org-mode)
-;;;;UI-Settings end   here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
-
-
-;;;;Time-Settings start here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-
 ;;enable the time display
 (display-time-mode 1)
 ;;use the 24 hours
@@ -62,6 +56,3 @@
 (setq display-time-day-and-date t)
 ;;set the fresh time
 (setq display-time-interval 10)
-
-
-;;;;Time-Settings end   here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

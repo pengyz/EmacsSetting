@@ -26,6 +26,11 @@ Return a list of one element based on major mode."
            '(help-mode apropos-mode Info-mode Man-mode))
      "Help"
      )
+	;; 想把VC的h文件和cpp文件放一起，结果总是不成功。
+	;; ((memq major-mode
+    ;;        '(C/1 C++/1))
+    ;;  "VC"
+    ;;  )
     ((memq major-mode
            '(rmail-mode
              rmail-edit-mode vm-summary-mode vm-mode mail-mode
