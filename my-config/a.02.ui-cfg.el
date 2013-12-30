@@ -6,7 +6,8 @@
 (if (and 
 	 (not (eq window-system 'x))
 	 (not (eq window-system 'w32)))
-	(menu-bar-mode -1))
+	(menu-bar-mode -1)
+  (menu-bar-mode t))
 ;;disable scroll bar
 (scroll-bar-mode -1)
 ;;enable clipboard
@@ -46,8 +47,8 @@
 ;;set the default open dir just for windowsf
 (if (eq window-system 'w32)
 	(setq default-directory my-windows-default-dir))
-;;set the default major mode to org-mode
-(setq default-major-mode 'org-mode)
+;;set the default major mode to c-mode
+(setq default-major-mode 'text-mode)
 ;;enable the time display
 (display-time-mode 1)
 ;;use the 24 hours

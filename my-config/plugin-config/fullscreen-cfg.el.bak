@@ -1,0 +1,7 @@
+;; config fullscreen.el
+
+(add-to-list 'load-path (concat plugin-path "/fullscreen-mode"))
+
+(require 'fullscreen-mode)
+
+(fullscreen-mode t)

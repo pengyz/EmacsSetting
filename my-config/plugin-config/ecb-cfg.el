@@ -33,11 +33,12 @@
 (setq semanticdb-default-save-directory "~/.emacs.d/semanticDB")
 
 ;; 配置Semantic的检索范围:
-(setq semanticdb-project-roots 
-	  (list
-	   (expand-file-name "E:/")))
+;; (setq semanticdb-project-roots 
+;; 	  (list
+;; 	   (expand-file-name "F:/")))
 ;; 配置semantic的库文件数据库
-(my-semantic-load-db-file)
+
+(my-semantic-system-database)
 
 ;; 设置speedbar使用semantic/db
 (add-hook 'speedbar-load-hook (lambda () 
@@ -46,10 +47,10 @@
 ;;按键设置
 ;;========================================================
 ;;使某一ecb窗口最大化
-(global-set-key (kbd "M-1") 'ecb-maximize-window-directories)
-(global-set-key (kbd "M-2") 'ecb-maximize-window-sources)
-(global-set-key (kbd "M-3") 'ecb-maximize-window-methods)
-(global-set-key (kbd "M-4") 'ecb-maximize-window-history)
+;; (global-set-key (kbd "M-1") 'ecb-maximize-window-directories)
+;; (global-set-key (kbd "M-2") 'ecb-maximize-window-sources)
+;; (global-set-key (kbd "M-3") 'ecb-maximize-window-methods)
+;; (global-set-key (kbd "M-4") 'ecb-maximize-window-history)
 ;; ;;自动启动ecb
 ;; (add-hook 'after-init-hook (lambda()
 ;; 							 (ecb-activate)
@@ -70,7 +71,7 @@
 ;;M-Mouse1 转到定义
 (global-set-key (kbd "M-<down-mouse-1>") 'semantic-ia-fast-mouse-jump)
 
-
+;;semantic-ia-jmp-back
 (global-set-key (kbd "S-<f12>")
                 (lambda ()
                   (interactive)
@@ -83,3 +84,4 @@
                                                    (semantic-current-tag))
                        (setq first (cdr (car (cdr alist)))))
                     (semantic-mrub-switch-tags first))))
+

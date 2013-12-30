@@ -22,7 +22,7 @@
 ;; end到文档结尾
 (global-set-key (kbd "<end>") 'end-of-buffer)
 ;; ;;C-z h隐藏emacs窗口
-;; (global-set-key (kbd "C-z z") 'suspend-frame)
+(global-set-key (kbd "C-z z") 'suspend-frame)
 ;;替换M ;上的注释
 (global-set-key (kbd "M-;") 'my-comment-dwim-line) 
 ;;各窗口间切换
@@ -71,6 +71,8 @@
 						   (shell)))
 ;;F6 : org-publish
 (global-set-key (kbd "<f6>") 'org-publish)
+;;C-F6 suppend-frame
+(global-set-key (kbd "C-<f6>") 'suspend-frame)
 ;;F17：添加当前页到书签中
 (global-set-key (kbd "<f7>") 'bookmark-set)
 ;;C-F7：列举我的书签

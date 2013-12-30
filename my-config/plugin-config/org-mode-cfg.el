@@ -5,7 +5,8 @@
 ;;中文自动折行
 (add-hook 'org-mode-hook (lambda () 
 						   (setq truncate-lines nil)
-							(show-paren-mode -1)))
+							;; (show-paren-mode -1)
+							))
 ;;默认开启indent模式
 (setq org-startup-indented t)
 ;;设置tudo item记录

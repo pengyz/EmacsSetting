@@ -32,7 +32,8 @@
  '(ecb-layout-name "my-left-analyse")
  '(ecb-layout-window-sizes (quote (("my-left-analyse" (ecb-methods-buffer-name 0.15822784810126583 . 0.375) (ecb-sources-buffer-name 0.15822784810126583 . 0.2916666666666667) (ecb-analyse-buffer-name 0.15822784810126583 . 0.3125)) ("my-left-speedbar" (ecb-sources-buffer-name 0.189873417721519 . 0.2708333333333333) (ecb-methods-buffer-name 0.189873417721519 . 0.3958333333333333) (ecb-speedbar-buffer-name 0.189873417721519 . 0.3125)) ("my-right-speedbar" (ecb-sources-buffer-name 0.23417721518987342 . 0.2708333333333333) (ecb-speedbar-buffer-name 0.23417721518987342 . 0.2708333333333333) (ecb-methods-buffer-name 0.23417721518987342 . 0.4375)))))
  '(ecb-options-version "2.40")
- '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2)))
+ '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
+ '(semantic-c-dependency-system-include-path (quote ("/usr/include" "C:/Program Files/Microsoft SDKs/Windows/v7.1A/Include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/atlmfc/include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/include"))))
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
@@ -64,7 +65,7 @@
 ;;-----------------------------------------------------------------------------------------
 ;;Tags Sun May 19 22:42:02 2013
 
-;;折腾了好长时间emacs了，乱七八糟装了很多东西。ac，yas，ecb，cedet，tabbar等等。现在的macs已经可以作为一个
+;;折腾了好长时间emacs了，乱七八糟装了很多东西。ac，yas，ecb，cedet，tabbar等等。现在的emacs已经可以作为一个
 ;;功能完备的c，c++编译环境了。感觉还是挺不错的。这个周末在鼓捣ruby，挺无奈的。离我创建这个配置文件开始算已经
 ;;有整整两个周的时间了。期间配置文件丢失过一次，系统重装了一次。现在这份是个重写版。我会时常备份下这个配置文件
 ;;一防万一。
@@ -130,4 +131,11 @@
 ;; semantic的分析有时候很傻,能不能做到像vs一样的可以方便地进行代码定义等等的跳转?还是要借助cscope?cscope如何与ecb整合?
 ;; cc-mode的代码折叠用什么插件好?以前用了hs-mode,但是感觉不是很顺手,用的也很少,折叠不够智能,只能在函数签名上折叠.
 ;; 矩形编辑还是不太顺手,如果能和正常的区域编辑进行一定的整合就好多了.
+
 (put 'erase-buffer 'disabled nil)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
