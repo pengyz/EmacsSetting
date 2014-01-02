@@ -15,7 +15,7 @@
 
 
 ;;tabbar-ruler
-(add-to-list 'load-path (concat plugin-path "/tabbar"))
+;; (add-to-list 'load-path (concat plugin-path "/tabbar"))
 (setq tabbar-ruler-global-tabbar 't) ; If you want tabbar
 (setq tabbar-ruler-global-ruler 't) ; if you want a global ruler
 ;;=====not use==========

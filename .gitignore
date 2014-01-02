@@ -16,3 +16,4 @@ server
 /*.el
 /*.dat
 /emms
+/plugins

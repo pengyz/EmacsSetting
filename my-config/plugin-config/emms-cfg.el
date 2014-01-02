@@ -1,7 +1,6 @@
 ;;emms
 ;;========================================================
-(add-to-list 'load-path (concat plugin-path "/emms"))
-(add-to-list 'load-path (concat plugin-path "/emms/lisp"))
+;; (add-to-list 'load-path (concat plugin-path "/emms/lisp"))
 (require 'emms-setup)
 (require 'emms-source-playlist)
 

@@ -1,6 +1,6 @@
 ;;expand-region
 ;;========================================================
-(add-to-list 'load-path (concat plugin-path "/expand-region"))
+;; (add-to-list 'load-path (concat plugin-path "/expand-region"))
 (require 'expand-region)
 ;; expand-region键绑定
 ;;====================================================

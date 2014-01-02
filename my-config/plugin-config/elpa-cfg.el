@@ -1,6 +1,11 @@
 
-;;添加包服务器
-;;========================================
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalage" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+;;check the plugin-path dir and use it for elpa
+
+
+;;add hook to install elpa packages
+;; (add-hook 'before-init-hook (lambda ()
+;; 							  (progn
+;; 								(jpk-add-source)
+;; 								(jpk-package-list-install))))
+(global-set-key (kbd "C-z p") 'package-list-unaccounted-packages)
+

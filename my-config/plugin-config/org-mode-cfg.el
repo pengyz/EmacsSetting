@@ -1,7 +1,7 @@
 ;;org-mode设置
 ;;========================================================
-(add-to-list 'load-path "~/.emacs.d/plugins/org/lisp")
-(add-to-list 'load-path "~/.emacsd/plugins/org/contrib/lisp" t)
+;; (add-to-list 'load-path "~/.emacs.d/plugins/org/lisp")
+;; (add-to-list 'load-path "~/.emacsd/plugins/org/contrib/lisp" t)
 ;;中文自动折行
 (add-hook 'org-mode-hook (lambda () 
 						   (setq truncate-lines nil)

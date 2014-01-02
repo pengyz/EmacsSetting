@@ -44,10 +44,10 @@
 (transient-mark-mode 1)
 ;;show parent match
 (show-paren-mode 1)
-;;set the default open dir just for windowsf
+;;set the default open dir just for windows
 (if (eq window-system 'w32)
 	(setq default-directory my-windows-default-dir))
-;;set the default major mode to c-mode
+;;set the default major mode to scheme-mode
 (setq default-major-mode 'text-mode)
 ;;enable the time display
 (display-time-mode 1)
@@ -57,3 +57,5 @@
 (setq display-time-day-and-date t)
 ;;set the fresh time
 (setq display-time-interval 10)
+;;disable auto-save
+(auto-save-mode nil)

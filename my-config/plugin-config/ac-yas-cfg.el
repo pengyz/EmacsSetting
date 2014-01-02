@@ -1,20 +1,20 @@
 ;;设置Yasnippet
 ;;========================================================
-(defun my-ac-yas-cfg ()
+;; (defun my-ac-yas-cfg ()
   "my ac-yas confg fun that load the ac-yas settings"
   (interactive)
-  (add-to-list 'load-path (concat plugin-path "/yasnippet"))
+  ;; (add-to-list 'load-path (concat plugin-path "/yasnippet"))
   (require 'yasnippet)
-  (yas-load-directory (concat plugin-path "/yasnippet/snippets"))
+  ;; (yas-load-directory (concat plugin-path "/yasnippet/snippets"))
   (yas-global-mode 1)
   ;;设置auto-complete-mode
   ;;========================================================
-  (add-to-list 'load-path (concat plugin-path "/auto-complete"))
-  (add-to-list 'load-path (concat plugin-path "/popup"))
+  ;; (add-to-list 'load-path (concat plugin-path "/auto-complete"))
+  ;; (add-to-list 'load-path (concat plugin-path "/popup"))
   (require 'auto-complete)
   (require 'auto-complete-config)		
   ;;设置字典路径
-  (add-to-list 'ac-dictionary-directories (concat plugin-path "/auto-complete/ac-dict"))
+  ;; (add-to-list 'ac-dictionary-directories (concat plugin-path "/auto-complete/ac-dict"))
   ;;使用增强列表
   (require 'pos-tip)
   (setq ac-quick-help-prefer-pos-tip)
@@ -56,12 +56,12 @@
 	  (selection-face . ac-yasnippet-selection-face))
 	"Source for Yasnippet.")
 
+;; )
 
-)
 
-(global-set-key (kbd "<f11>") (lambda ()
-								"just load ac-yas and VC head files"
-								(interactive)
-								(my-ac-yas-cfg)
-								;; (my-semantic-inc-dir nil)
-))
+;; (global-set-key (kbd "<f11>") (lambda ()
+;; 								"just load ac-yas snippets"
+;; 								(interactive)
+;; 								(my-ac-yas-cfg)
+;; 								;; (my-semantic-inc-dir nil)
+;; ))

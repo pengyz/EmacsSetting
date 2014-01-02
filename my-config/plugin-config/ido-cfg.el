@@ -1,6 +1,7 @@
 ;;设置ido(增强的文件文件搜插件)
 ;;========================================================
 (require 'ido)
+(setq ido-save-directory-list-file (concat temp-path "/.ido.last"))
 (ido-mode t)
 ;;ido键绑定
 ;;========================================================
@@ -34,9 +35,9 @@
 
   ;; keys used in file and dir environment
   (when (memq ido-cur-item '(file dir))
-    (define-key ido-mode-map "\C-b" 'ido-enter-switch-buffer)
-    (define-key ido-mode-map "\C-d" 'ido-enter-dired)
-    (define-key ido-mode-map "\C-f" 'ido-fallback-command)
+    (define-key ido-mode-map (kbd "C-b") 'ido-enter-switch-buffer)
+    (define-key ido-mode-map (kbd "C-d") 'ido-enter-dired)
+    (define-key ido-mode-map (kbd "C-f") 'ido-fallback-command)
 
     ;; cycle among directories
     ;; use [left] and [right] for matching files
@@ -67,17 +68,17 @@
     )
 
   (when (eq ido-cur-item 'file)
-    (define-key ido-mode-map "\C-k" 'ido-delete-file-at-head)
-    (define-key ido-mode-map "\C-l" 'ido-toggle-literal)
-    (define-key ido-mode-map "\C-o" 'ido-copy-current-word)
-    (define-key ido-mode-map "\C-v" 'ido-toggle-vc)
-    (define-key ido-mode-map "\C-w" 'ido-copy-current-file-name)
+    (define-key ido-mode-map (kbd "C-k") 'ido-delete-file-at-head)
+    (define-key ido-mode-map (kbd "C-l") 'ido-toggle-literal)
+    (define-key ido-mode-map (kbd "C-o") 'ido-copy-current-word)
+    (define-key ido-mode-map (kbd "C-v") 'ido-toggle-vc)
+    (define-key ido-mode-map (kbd "C-w") 'ido-copy-current-file-name)
     )
 
   (when (eq ido-cur-item 'buffer)
-    (define-key ido-mode-map "\C-b" 'ido-fallback-command)
-    (define-key ido-mode-map "\C-f" 'ido-enter-find-file)
-    (define-key ido-mode-map "\C-k" 'ido-kill-buffer-at-head)
+    (define-key ido-mode-map (kbd"C-b") 'ido-fallback-command)
+    (define-key ido-mode-map (kbd"C-f") 'ido-enter-find-file)
+    (define-key ido-mode-map (kbd"C-k") 'ido-kill-buffer-at-head)
     ))
 
 (ido-mode t)

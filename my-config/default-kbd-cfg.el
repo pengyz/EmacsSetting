@@ -6,11 +6,21 @@
 ;;临时记号
 (global-set-key (kbd "C-z t") 'ska-point-to-register)
 (global-set-key (kbd "C-z g") 'ska-jump-to-register)
+;;eval-buffer
+(global-set-key (kbd "C-z e") 
+				(lambda()
+				  (interactive)
+				  (eval-buffer)
+				  (message "eval-buffer over")))
+
+;;C-z d 格式化当前buffer
+(global-set-key (kbd "C-z d") 'indent-whole)
+
 ;;字体放大缩小设置
 ;; For Linux
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)
 (global-set-key (kbd "<C-mouse-5>") 'text-scale-decrease)
- ;; For Windows
+;; For Windows
 (global-set-key (kbd "<C-wheel-up>") 'text-scale-increase)
 (global-set-key (kbd "<C-wheel-down>") 'text-scale-decrease)
 ;;查找字符
@@ -21,7 +31,7 @@
 (global-set-key (kbd "<home>") 'beginning-of-buffer)
 ;; end到文档结尾
 (global-set-key (kbd "<end>") 'end-of-buffer)
-;; ;;C-z h隐藏emacs窗口
+;; ;;C-z z隐藏emacs窗口
 (global-set-key (kbd "C-z z") 'suspend-frame)
 ;;替换M ;上的注释
 (global-set-key (kbd "M-;") 'my-comment-dwim-line) 
@@ -50,9 +60,9 @@
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;F3 : 关闭当前buffer与当前窗口
 (global-set-key (kbd "<f3>") (lambda ()
-                             (interactive)
-                             (kill-buffer)
-                             (delete-window)))
+							   (interactive)
+							   (kill-buffer)
+							   (delete-window)))
 ;;Ctrl-F3 : 关闭当buffer
 (global-set-key (kbd "C-<f3>") 'kill-this-buffer)
 ;;Alt-F3 : 关闭当前buffer
@@ -65,14 +75,14 @@
 ;; (global-set-key (kbd "<f5>") 'shell)
 ;;C-F5 : 在新窗口打开shell
 (global-set-key (kbd "C-<f5>") (lambda()
-						   (interactive)
-						   (split-window-below)
-						   (other-window-for-scrolling)
-						   (shell)))
+								 (interactive)
+								 (split-window-below)
+								 (other-window-for-scrolling)
+								 (shell)))
 ;;F6 : org-publish
 (global-set-key (kbd "<f6>") 'org-publish)
 ;;C-F6 suppend-frame
-(global-set-key (kbd "C-<f6>") 'suspend-frame)
+;; (global-set-key (kbd "C-<f6>") 'suspend-frame)
 ;;F17：添加当前页到书签中
 (global-set-key (kbd "<f7>") 'bookmark-set)
 ;;C-F7：列举我的书签
