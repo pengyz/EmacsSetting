@@ -105,6 +105,9 @@
 ;; 避免semantic占用CPU过多
 (setq-default semantic-idle-scheduler-idle-time 432000)
 
+;;设置VC++系统头文件路径
+(setq semantic-c-dependency-system-include-path (quote ("/usr/include" "C:/Program Files/Microsoft SDKs/Windows/v7.1A/Include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/atlmfc/include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/include")))
+
 ;;semantic-ia设置
 ;;========================================================
 (require 'semantic/ia)

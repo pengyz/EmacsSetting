@@ -11,19 +11,15 @@
 
 ;; 关闭ecb的directories-make-buckets
 (setq ecb-history-make-buckets 'never)
+;; 设置ede项目缓存文件路径
+(setq ede-project-placeholder-cache-file (concat temp-path "/ede-projects/ede-projects.el"))
+(check-temp-dir (concat temp-path "/ede-projects/"))
+;; 设置ecb用户自定义模板文件路径
+(setq ecb-create-layout-file (concat config-path "/ecb-layout/.ecb-user-layouts.el"))
+(check-temp-dir (concat config-path "/ecb-layout/"))
+;; 设置ecb鼠标模式
+(setq ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
 
-
-;;按键设置
-;;========================================================
-;;使某一ecb窗口最大化
-;; (global-set-key (kbd "M-1") 'ecb-maximize-window-directories)
-;; (global-set-key (kbd "M-2") 'ecb-maximize-window-sources)
-;; (global-set-key (kbd "M-3") 'ecb-maximize-window-methods)
-;; (global-set-key (kbd "M-4") 'ecb-maximize-window-history)
-;; ;;自动启动ecb
-;; (add-hook 'after-init-hook (lambda()
-;; 							 (ecb-activate)
-;; 							 (ecb-hide-ecb-windows)))
 ;; F1 : 开启-关闭ecb
 ;; (global-set-key [(f1)] 'ecb-toggle-ecb-windows)
 (setq ecb-minor-mode nil)
