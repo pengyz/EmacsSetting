@@ -16,6 +16,9 @@
 ;;C-z d 格式化当前buffer
 (global-set-key (kbd "C-z d") 'indent-whole)
 
+;;C-z p 列出未在列表中的已安装包
+(global-set-key (kbd "C-z p") 'package-list-unaccounted-packages)
+
 ;;字体放大缩小设置
 ;; For Linux
 (global-set-key (kbd "<C-mouse-4>") 'text-scale-increase)

@@ -1,7 +1,9 @@
 ;;设置ido(增强的文件文件搜插件)
 ;;========================================================
 (require 'ido)
-(setq ido-save-directory-list-file (concat temp-path "/.ido.last"))
+(setq ido-dir (concat temp-path "/ido"))
+(setq ido-save-directory-list-file (concat ido-dir "/.ido.last"))
+(check-temp-dir ido-dir)
 (ido-mode t)
 ;;ido键绑定
 ;;========================================================

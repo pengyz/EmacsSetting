@@ -1,7 +1,0 @@
-# -*- mode: snippet -*-
-# name: KdPrint
-# contributor: pengyz
-# key: kdt
-# --
-KdPrint(("${1:%s}\\n"${1:$(if (string-match "%" yas-text) "," "\);")
-}$2${1:$(if (string-match "%" yas-text) "\));" "")}

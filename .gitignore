@@ -1,8 +1,8 @@
-elpa
-eshell
-auto-save-list
-semanticdb
-temp
+/elpa
+/eshell
+/auto-save-list
+/semanticdb
+/temp
 .session
 ede-projects.el
 emacs-X11.exe.stackdump
@@ -11,8 +11,8 @@ emms
 *.el~
 *.el#
 *.cache
-url
-server
+/url
+/server
 /*.el
 /*.dat
 /emms

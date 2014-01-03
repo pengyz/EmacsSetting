@@ -6,10 +6,10 @@
 ;; Author: pengyz
 ;; Maintainer: 
 ;;   pengyz;; Created: 周二 十二月 31 18:59:27 2013 (+0800)
-;; Version: 0.04beta
-;; Last-Updated: 周二 十二月 31 19:02:17 2013 (+0800)
+;; Version: 0.06beta
+;; Last-Updated: 周五 一月  3 08:56:07 2014 (+0800)
 ;;           By: pengyz
-;;     Update #: 4
+;;     Update #: 6
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
 ;;; Change Log:
@@ -52,6 +52,13 @@
 ;; cc-mode的代码折叠用什么插件好?以前用了hs-mode,但是感觉不是很顺手,用的也很少,折叠不够智能,只能在函数签名上折叠.
 ;; 矩形编辑还是不太顺手,如果能和正常的区域编辑进行一定的整合就好多了.
 ;; 
+;;-----------------------------------------------------------------------------------------
+;; Fri Jan  3 08:53:18 2014
+;; 花了一整晚的时间继续配置了emacs
+;; 这次的主要变动是增加了基于elpa的包自动安装机制。同时增加了对文件夹的check，避免出错。
+;; emms花了很长时间，还是没有弄好。
+;; 代码是从网上copy的，具体的写法还没有搞清楚
+;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; 
 ;; This program is free software; you can redistribute it and/or
@@ -74,6 +81,48 @@
 ;;; Code:
 
 
+;; jpk package install list
+(setq jpk-package-list
+	  '(
+
+		;;=========================================IN USED PKG ====================================================
+		auto-complete          ;; an auto complete system can combine with yasnippet and other resourses
+		tabbar                 ;; tab pages just like a typical windows style
+		yasnippet              ;; yet another snippets --snippet complete system
+		ascope                 ;; another cscope additional
+		cygwin-mount           ;; an config file for cygwin to mount in windows
+		ctypes                 ;; a foced font lock for C/C++
+		ecb                    ;; emacs code browser
+		expand-region          ;; C-= select region
+		tabbar-ruler           ;; tabbar and global ruler
+		smex                   ;; M-x complete
+		paredit                ;; paren force mode for scheme and other lisp languages
+		smartparens            ;; paren auto complete
+		dash                   ;; dependcy for smartparens
+		browse-kill-ring       ;; browse kill ring and do some option in it
+		make-project           ;; not in use
+		popup                  ;; dependcy for yasnippet
+		header2                ;; insert header info for your file
+		session                ;; save edit conditions
+		emms                   ;; a mutiple system to use mplayer vlc etc in emacs (It doesn't work now in windows!)
+		vlf                    ;; view large file
+		lua-mode               ;; lua support
+		rect-mark              ;; real retangle mark and edit
+		pos-tip                ;; dependcy package for yasnippet provide a tips display
+		bind-key		       ;; a simple way to manage personal key bindings
+		;;========================================================================================================
+
+
+
+		;;=========================================NOT IN USE ====================================================
+		;; emacs-setup            ;; help to setup emacs and customize variables
+		;; slime                  ;; common-lisp support
+		;; git                    ;; git support
+		;; f                      ;; dependcy for git
+		;; s                      ;; dependcy for git 
+		;;========================================================================================================
+
+		))
 
 
 ;;define the base path
@@ -82,39 +131,6 @@
 (defvar temp-path "~/.emacs.d/temp")
 (defvar plugin-config-path (concat config-path "/plugin-config"))
 (defvar elisp-fun-path (concat config-path "/elisp-fun"))
-;; jpk package install list
-(setq jpk-package-list
-	  '(
-		ecb
-		tabbar-ruler
-		smex
-		expand-region
-		paredit
-		tabbar
-		smartparens
-		yasnippet
-		ac-dabbrev
-		slime
-		dash
-		browse-kill-ring
-		auto-complete
-		inf-ruby
-		ruby-mode
-		fullscreen-mode
-		xcscope
-		ascope
-		coffee-mode
-		make-project
-		popup
-		header2
-		session
-		emms
-		vlf
-		lua-mode
-		cygwin-mount
-		rect-mark
-		pos-tip
-		))
 
 ;;define the default open dir for windows
 (defvar my-windows-default-dir "F:/")
@@ -124,7 +140,7 @@
 
 ;;add the plugin-path to the load-path
 (add-to-list 'load-path plugin-path)
-
+(add-to-list 'load-path config-path)
 ;;define my kbd prefix to use C-z
 (define-prefix-command 'ctl-z-map)
 (global-set-key (kbd "C-z") 'ctl-z-map)
@@ -134,12 +150,9 @@
 ;;load all the config file frome three path
 (mapc 'load (directory-files elisp-fun-path t "\\.el$"))
 (mapc 'load (directory-files config-path t "\\.el$"))
-
+(check-temp-dir plugin-path)
+(check-temp-dir temp-path)
 ;;dir change
-(if (not (file-exists-p plugin-path))
-	(progn 
-	  (make-directory plugin-path)
-	  (message "dir plugin-path (%s) created ！" plugin-path)))
 (setq package-user-dir plugin-path)
 ;; add source
 (jpk-add-source)
@@ -156,19 +169,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
  '(ecb-layout-name "my-left-analyse")
  '(ecb-layout-window-sizes (quote (("my-left-analyse" (ecb-methods-buffer-name 0.15822784810126583 . 0.375) (ecb-sources-buffer-name 0.15822784810126583 . 0.2916666666666667) (ecb-analyse-buffer-name 0.15822784810126583 . 0.3125)) ("my-left-speedbar" (ecb-sources-buffer-name 0.189873417721519 . 0.2708333333333333) (ecb-methods-buffer-name 0.189873417721519 . 0.3958333333333333) (ecb-speedbar-buffer-name 0.189873417721519 . 0.3125)) ("my-right-speedbar" (ecb-sources-buffer-name 0.23417721518987342 . 0.2708333333333333) (ecb-speedbar-buffer-name 0.23417721518987342 . 0.2708333333333333) (ecb-methods-buffer-name 0.23417721518987342 . 0.4375)))))
  '(ecb-options-version "2.40")
  '(ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
- '(jde-jdk-registry (quote (("1.7.0_45" . "F:/CodeEnvironment/JDK7"))))
- '(semantic-c-dependency-system-include-path (quote ("/usr/include" "C:/Program Files/Microsoft SDKs/Windows/v7.1A/Include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/atlmfc/include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/include"))))
+ '(semantic-c-dependency-system-include-path (quote ("/usr/include" "C:/Program Files/Microsoft SDKs/Windows/v7.1A/Include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/atlmfc/include" "C:/Program Files/Microsoft Visual Studio 11.0/VC/include")))
+ '(server-auth-dir (concat temp-path "/server")))
 
 (put 'erase-buffer 'disabled nil)
+
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+
  '(font-lock-constant-face ((t (:foreground "yellow"))))
  '(font-lock-function-name-face ((t (:foreground "orange"))))
  '(font-lock-keyword-face ((t (:foreground "steel blue"))))

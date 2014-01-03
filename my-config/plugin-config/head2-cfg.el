@@ -17,7 +17,7 @@
 						  header-history
 						  header-blank
 						  ))
-(setq header-copyright-notice "GPL Liciences" )
+(setq header-copyright-notice "GPL Licience" )
 (make-local-variable 'user-full-name)
 (make-local-variable 'user-mail-address)
 

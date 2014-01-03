@@ -34,7 +34,7 @@
 ;; list the unaccounted packages
 (defun package-list-unaccounted-packages ()
   "Like `package-list-packages', but shows only the packages that
-  are installed and are not in `jpk-packages'.  Useful for
+  are installed and are not in `jpk-package-list'.  Useful for
   cleaning out unwanted packages."
   (interactive)
   (package-show-package-list

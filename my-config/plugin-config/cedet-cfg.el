@@ -38,7 +38,7 @@
 	  (setq include-dirs (append include-dirs cedet-win32-VC-WDK-include-dirs)))
 	(mapc (lambda (dir)
 			(semantic-add-system-include dir 'c++-mode)
-			(semantic-add-system-include dir 'c-mode)
+		(semantic-add-system-include dir 'c-mode)
 			(semantic-add-system-include dir 'cc-mode))
 		  include-dirs))
   (semantic-force-refresh))
@@ -178,7 +178,10 @@
 ;;设置WDK的include路径(貌似没有什么作用)
 (my-semantic-inc-dir t)
 ;;设置semantic数据库存储位置
-(setq semanticdb-default-save-directory (expand-file-name "~/.emacs.d/semanticDB"))
+(setq semantic-db-dir (concat temp-path "/semanticDB"))
+(check-temp-dir semantic-db-dir)
+(setq semanticdb-default-save-directory (expand-file-name semantic-db-dir))
+
 
 ;; 配置Semantic的检索范围:
 ;; (setq semanticdb-project-roots 

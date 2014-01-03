@@ -1,5 +1,0 @@
-;;railsSettings
-;;========================================================
-(add-to-list 'load-path (concat plugin-path "/emacs-rails"))
-(add-to-list 'load-path (concat plugin-path "/inf-ruby"))
-(require 'rails-autoload)

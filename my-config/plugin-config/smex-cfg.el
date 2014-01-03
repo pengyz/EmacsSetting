@@ -3,7 +3,10 @@
 ;; (add-to-list 'load-path (concat plugin-path "/smex"))
 (require 'smex)
 (smex-initialize)
-(setq smex-save-file (concat temp-path  "/.smex-items"))
+(setq smex-dir (concat temp-path  "/smex"))
+(if(not (file-exists-p smex-dir))
+	(make-directory smex-dir))
+(setq smex-save-file (concat smex-dir "/.smex-items"))
 
 ;; smex键绑定
 ;;=============================================================

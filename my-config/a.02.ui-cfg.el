@@ -57,5 +57,4 @@
 (setq display-time-day-and-date t)
 ;;set the fresh time
 (setq display-time-interval 10)
-;;disable auto-save
-(auto-save-mode nil)
+

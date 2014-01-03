@@ -1,0 +1,13 @@
+;;cscope设置
+;;==================================================
+;;现在还没搞明白,xcscope和ascope都放进来了,暂时还是都不会用
+;;==================xcscope=========================
+(require 'xcscope)
+
+;;==================ascope==========================
+;;使用ascope替代了cscope的自带包
+;; (add-to-list 'load-path (concat plugin-path "/ascope"))
+;; (require 'ascope)
+
+
+

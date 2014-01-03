@@ -35,5 +35,10 @@ CLOSED: [2013-10-30 星期三 20:19]
   参照网上的配置，结合emacs server和VS2010的外部工具，现在emacs可以很好地和VS2010配合工作。
   不过还是感觉emacs在VC编程上比不上VS顺手，毕竟新版本的VS在一些功能上远比emacs的yasnippet，auto-complete来的犀利。
   emacs通过定制auto-complete,配合cedet的语法解析结果，肯定也可以完成这个功能，但是这个需要以后有时间慢慢折腾了。
-** TODO 学会写Emacs的插件安装脚本
+** DONE 学会写Emacs的插件安装脚本
+CLOSED: [2014-01-03 周五 09:56]
+- CLOSING NOTE [2014-01-03 周五 09:56] \\
+  从别人那抄来一个能用的，代码量很小，但功能很强大。
+  具体的实现还没看，用到了很多我之前没接触到的特性。
 
+** TODO 配置bind-key.el并用该插件对现有的建绑定进行重写。

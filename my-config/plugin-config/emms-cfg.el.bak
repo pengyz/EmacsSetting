@@ -1,0 +1,142 @@
+;; ;; ;;emms
+;; ;; ;;========================================================
+
+;; ;; (require 'emms)
+;; ;; (require 'emms-i18n)
+;; ;; (require 'emms-history)
+;; ;; (require 'emms-setup)
+;; ;; (emms-standard)
+;; ;; (require 'emms-score)
+;; ;; (emms-score 1)
+;; ;; (require 'emms-source-playlist)
+;; ;; (require 'emms-source-file)
+;; ;; (require 'emms-i18n)
+;; ;; (require 'emms-history)
+;; ;; (require 'emms-player-mplayer)
+;; ;; ;;emms auto save dir
+;; ;; (setq emms-dir (concat temp-path "/emms"))
+;; ;; (setq emms-directory emms-dir)
+;; ;; (if (not (file-exists-p emms-dir))
+;; ;; 	(make-directory emms-dir))
+;; ;; ;; exec-path to mplayer for windows
+;; ;; (if (equal system-type 'windows-nt)
+;; ;; 	(progn 
+;; ;; 	  (add-to-list 'exec-path  "C:/Program Files/MPlayer")))
+;; ;; ;; emms install all
+;; ;; (emms-all)
+;; ;; (emms-default-players)
+;; ;; (setq emms-player-list '(emms-player-mpg321 
+;; ;; 						 emms-player-ogg123 
+;; ;; 						 emms-player-mplayer)
+;; ;;       emms-source-list '((emms-directory-tree "D:/歌曲/")))
+
+;; ;; (define-emms-simple-player mplayer '(file url)
+;; ;;   (regexp-opt '(".ogg" ".mp3" ".wav" ".mpg" ".mpeg" ".wmv" ".wma"
+;; ;; 				".mov" ".avi" ".divx" ".ogm" ".asf" ".mkv" "http://" "mms://"
+;; ;; 				".rm" ".rmvb" ".mp4" ".flac" ".vob" ".m4a" ".flv" ".ogv" ".pls"))
+;; ;;   "mplayer" "-slave" "-quiet" "-really-quiet" "-fullscreen")
+
+
+;; ;; ;;播放列表显示函数 
+;; ;; (defun bigclean-emms-info-track-description (track)
+;; ;;   "Return a description of the current track."
+;; ;;   (let ((artist (emms-track-get track 'info-artist))
+;; ;;         (title (emms-track-get track 'info-title))
+;; ;;         (album (emms-track-get track 'info-album))
+;; ;;         (ptime (emms-track-get track 'info-playing-time)))
+;; ;;     (if title 
+;; ;;         (format 
+;; ;;          "%-35s %-40s %-35s %5s:%-5s"
+;; ;;          (if artist artist "")
+;; ;;          (if title title "")
+;; ;;          (if album album "")
+;; ;;          (/ ptime 60)
+;; ;;          (% ptime 60)))))
+;; ;; (setq emms-track-description-function
+;; ;;       'bigclean-emms-info-track-description)
+
+;; ;; ;; coding settings
+;; ;; (setq emms-info-mp3info-coding-system 'gbk
+;; ;;       emms-cache-file-coding-system 'utf-8
+;; ;;       ;; emms-i18n-default-coding-system '(utf-8 . utf-8)
+;; ;; 	  )
+
+
+;; ;;EMMS player (a music/video player for emacs)
+;; ;;========================================================
+;; ;; (require 'emms)
+;; ;; (require 'emms-setup)
+;; ;; (require 'emms-player-simple)
+;; ;; (require 'emms-source-file)
+;; ;; (require 'emms-source-playlist)
+;; ;; (setq emms-player-list '(emms-player-mpg321 
+;; ;; 						 emms-player-ogg123 
+;; ;; 						 emms-player-mplayer)
+;; ;;       emms-source-list '((emms-directory-tree "D:/歌曲/")))
+;; ;; (require 'emms-player-mplayer)
+;; ;; (add-to-list 'exec-path "C:/Program Files/MPlayer/")
+;; ;; (emms-standard)
+;; ;; (emms-all)
+
+;; ;;========================================================
+;; (require 'emms-setup)
+;; (emms-standard)
+;; (emms-default-players)
+
+;; ;; Show the current track each time EMMS
+;; ;; starts to play a track with "NP : "
+;; (add-hook 'emms-player-started-hook 'emms-show)
+;; (setq emms-show-format "NP: %s")
+
+;; ;; When asked for emms-play-directory,
+;; ;; always start from this one 
+;; (setq emms-source-file-default-directory "D:/歌曲/")
+
+;; ;; Want to use alsa with mpg321 ? 
+;; (setq emms-player-mpg321-parameters '("-o" "alsa"))
+
+;; ;; emms键绑定
+;; ;;========================================================
+;; ;; global key-map
+;; ;; all global keys prefix is C-c e
+;; ;; compatible with emms-playlist mode keybindings
+;; ;; you can view emms-playlist-mode.el to get details about 
+;; ;; emms-playlist mode keys map
+;; (global-set-key (kbd "C-c e s") 'emms-stop)
+;; (global-set-key (kbd "C-c e P") 'emms-pause)
+;; (global-set-key (kbd "C-c e n") 'emms-next)
+;; (global-set-key (kbd "C-c e p") 'emms-previous)
+;; (global-set-key (kbd "C-c e f") 'emms-show)
+;; (global-set-key (kbd "C-c e >") 'emms-seek-forward)
+;; (global-set-key (kbd "C-c e <") 'emms-seek-backward)
+;; ;; these keys maps were derivations of above keybindings
+;; (global-set-key (kbd "C-c e S") (lambda () "加载D:\歌曲，显示播放列表并暂停" 
+;; 								  (interactive)
+;; 								  (emms-play-directory-tree "D:/歌曲")
+;; 								  (emms-playlist-mode-go)
+;; 								  (emms-pause)))
+;; (global-set-key (kbd "C-c e g") 'emms-playlist-mode-go)
+;; (global-set-key (kbd "C-c e t") 'emms-play-directory-tree)
+;; (global-set-key (kbd "C-c e h") 'emms-shuffle)
+;; (global-set-key (kbd "C-c e e") 'emms-play-file)
+;; (global-set-key (kbd "C-c e l") 'emms-play-playlist)
+;; (global-set-key (kbd "C-c e r") 'emms-toggle-repeat-track)
+;; (global-set-key (kbd "C-c e R") 'emms-toggle-repeat-playlist)
+;; (global-set-key (kbd "C-c e u") 'emms-score-up-playing)
+;; (global-set-key (kbd "C-c e d") 'emms-score-down-playing)
+;; (global-set-key (kbd "C-c e o") 'emms-score-show-playing)
+
+
+;; (require 'emms-lukhas-setup)
+
+;; (if (equal system-type 'windows-nt)                       
+;; 	(add-to-list 'exec-path  "C:/Program Files/MPlayer/"))
+
+;; (setq emms-source-file-default-directory "D:/歌曲/")
+
+;; (global-set-key (kbd "C-z w")    'emms-google-for-lyrics)
+;; (global-set-key (kbd "C-z s")    'emms-smart-browse)
+;; (global-set-key (kbd "C-z l")    'emms-playlist-mode-go)
+;; (global-set-key (kbd "C-z r")  'emms-stream-popup)
+;; (global-set-key (kbd "C-z <right>") 'emms-next)
+;; (global-set-key (kbd "C-z <left>") 'emms-previous)
