@@ -1,0 +1,29 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat Jan  4 04:33:07 2014
+;; Desktop file format version 206
+;; Emacs version 24.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("F:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/my-per-cfg.el" "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/my-per-cfg.el" "F:/Helpers/Xajh/doc/org/npc懚詰话call.org" "F:/Helpers/EmacsSetting/README" "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/my-per-cfg.el" "f:/Helpers/Xajh/doc/org/npc懚詰话call.org" "f:/Helpers/Xajh/XajhAPI/AddrDef.h" "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/my-per-cfg.el" "f:/CodeEnvironment/Emacs-24.3/" "f:/Helpers/Xajh/doc/org/npc懚詰话call.org" "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/preload/load-path.el" "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/preload/per-funs/max-frame.el" "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/preload/load-path.el" "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/my-per-cfg.el" "f:/Helpers/Xajh/doc/org/npc懚詰话call.org" "~/.emacs.d/init.el"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "f:/CodeEnvironment/Emacs-24.3/home/.emacs.d/personal/my-per-cfg.el"
+  "my-per-cfg.el"
+  'emacs-lisp-mode
+  '(prelude-mode global-auto-revert-mode smartparens-mode volatile-highlights-mode projectile-mode anzu-mode undo-tree-mode linum-mode)
+  7272
+  '(7390 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . chinese-gbk-dos)))
+
