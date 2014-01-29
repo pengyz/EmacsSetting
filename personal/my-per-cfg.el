@@ -5,6 +5,11 @@
 (setq default-directory "F:/")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; set Emacs C Source Code Directory
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(setq source-directory "F:/Sources/emacs/")
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;; set title format
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (setq frame-title-format "%b@pengyz-Emacs24.3")
@@ -246,14 +251,14 @@
 ;;========================================================
 ;;设置Session
 ;;========================================================
-(require 'session)
-(add-hook 'after-init-hook session-initialize)
+;; (require 'session)
+;; (add-hook 'after-init-hook session-initialize)
 
 ;;========================================================
 ;;设置desktop
 ;;========================================================
 (require 'desktop)
-(setq desktop-dir "~/")
+(setq desktop-dir prelude-savefile-dir)
 (setq desktop-path (list desktop-dir))
 (setq desktop-dirname desktop-dir)
 (setq desktop-base-file-name ".desktop")
@@ -307,15 +312,6 @@
 ;; Yasnippet and Auto-complete settings
 ;;========================================================
 
-;;设置Yasnippet
-;; (defun my-check-dir (dir)
-;;   (unless (file-exists-p my-save-path)
-;;     (create-directory my-save-path)))
-
-
-(setq my-save-path (expand-file-name "savefile" user-emacs-directory))
-(check-temp-dir my-save-path)
-
 (require 'yasnippet)
 (yas-global-mode 1)
 (require 'auto-complete)
@@ -335,8 +331,8 @@
 ;;开启ac-dwin
 (setq ac-dwim t)
 ;;设置ac数据文件位置
-(setq ac-comphist-file (expand-file-name "ac-comphist/ac-comphist.dat" my-save-path))
-(check-temp-dir (expand-file-name "/ac-comphist/" my-save-path))
+(setq ac-comphist-file (expand-file-name "ac-comphist/ac-comphist.dat" prelude-savefile-dir))
+(check-temp-dir (expand-file-name "ac-comphist/" prelude-savefile-dir))
 ;;添加ac补全源
 (set-default 'ac-sources
              '(ac-source-semantic ;;ac使用semantic的分析结果
@@ -377,18 +373,18 @@
 ;; (ac-config-default)
 
 
-(defun my-ac-clang-mode-common-hook()
-  (require 'auto-complete-clang)
-  (setq clang-completion-suppress-error 't)
-  (setq ac-clang-flags
-        (mapcar (lambda (item)(concat "-I" item))
-                (append
-                 ;; mycustom-system-include-paths
-                 semantic-c-dependency-system-include-path
-                 )))
-  (define-key c-mode-base-map (kbd "M-/") 'ac-complete-clang))
+;; (defun my-ac-clang-mode-common-hook()
+;;   (require 'auto-complete-clang)
+;;   (setq clang-completion-suppress-error 't)
+;;   (setq ac-clang-flags
+;;         (mapcar (lambda (item)(concat "-I" item))
+;;                 (append
+;;                  ;; mycustom-system-include-paths
+;;                  semantic-c-dependency-system-include-path
+;;                  )))
+;;   (define-key c-mode-base-map (kbd "M-/") 'ac-complete-clang))
 
-(add-hook 'c-mode-common-hook 'my-ac-clang-mode-common-hook)
+;; (add-hook 'c-mode-common-hook 'my-ac-clang-mode-common-hook)
 
 
 ;;========================================================
@@ -406,11 +402,12 @@
 ;; 关闭ecb的directories-make-buckets
 (setq ecb-history-make-buckets 'never)
 ;; 设置ede项目缓存文件路径
-(setq ede-project-placeholder-cache-file (expand-file-name "ede-projects/ede-projects.el" my-save-path))
-(check-temp-dir (expand-file-name "/ede-projects/" my-save-path))
+(setq ede-project-placeholder-cache-file (expand-file-name "ede-projects/ede-projects.el" prelude-savefile-dir))
+
+(check-temp-dir (expand-file-name "ede-projects/" prelude-savefile-dir))
 ;; 设置ecb用户自定义模板文件路径
-(setq ecb-create-layout-file (expand-file-name "ecb-layout/.ecb-user-layouts.el" my-save-path))
-(check-temp-dir (expand-file-name "ecb-layout/" my-save-path))
+(setq ecb-create-layout-file (expand-file-name "ecb-layout/.ecb-user-layouts.el" prelude-savefile-dir))
+(check-temp-dir (expand-file-name "ecb-layout/" prelude-savefile-dir))
 ;; 设置ecb鼠标模式
 (setq ecb-primary-secondary-mouse-buttons (quote mouse-1--mouse-2))
 
@@ -588,5 +585,8 @@ the mru bookmark stack."
 
 
 
+;; browse kill ring
+;;========================================================
+(global-set-key (kbd "C-z C-r") 'browse-kill-ring)
 
 ;;;;Package-Settings end here;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

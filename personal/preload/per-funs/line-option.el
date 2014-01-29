@@ -14,9 +14,6 @@
 
 
 
-
-
-
 ;; ====my-dwin-kill-region====================
 ;; ========剪切操作==========
 ;; 区域选中：剪切区域
@@ -26,11 +23,14 @@
 (defun my-dwin-kill-region ()
   "dwin cut option between region and line"
   (interactive "*")
-  (if (and rm-mark-active)				; rm cut region
-  	  (rm-kill-region (region-beginning) (region-end))
-  	(if (and mark-active)				; cut region
-  		(kill-region (region-beginning) (region-end))
-	  (my-line-option 'cut))))			; cut current line
+  (if rm-mark-active				
+      ;; rm cut region
+      (rm-kill-region (region-beginning) (region-end))
+    (if (and mark-active)				
+        ;; cut region
+        (kill-region (region-beginning) (region-end))
+      ;; cut current line
+      (my-line-option 'cut))))			
 
 ;; ====my-dwin-kill-ring-save=================
 ;; ========复制操作==========
@@ -41,12 +41,15 @@
 (defun my-dwin-kill-ring-save ()
   "dwin copy option between region and line"
   (interactive)
-  (if (and rm-mark-active)				;; rm copy region
-  	  (progn (rm-kill-ring-save (region-beginning) (region-end))
-			 (rm-deactivate-mark))
-  	(if (and mark-active)				;; copy region
-		(kill-ring-save (region-beginning) (region-end))
-	  (my-line-option 'cpy))))			;; copy current line
+  (if  rm-mark-active				
+      ;; rm copy region
+      (progn (rm-kill-ring-save (region-beginning) (region-end))
+             (rm-deactivate-mark))
+    (if mark-active				
+        ;; copy region
+        (kill-ring-save (region-beginning) (region-end))
+      ;; copy current line
+      (my-line-option 'cpy))))			
 
 ;; ====my-dwin-delete-region==================
 ;; ========删除操作==========
@@ -57,11 +60,14 @@
 (defun my-dwin-delete-region ()
   "dwin delete option between region and line"
   (interactive "*")
-  (if (and rm-mark-active)				;; rm delete region
-  	  (delete-rectangle (region-beginning) (region-end))
-  	(if (and mark-active)				;; delete region
-  		(delete-region (region-beginning) (region-end)))
-        (my-line-option 'del)))			        ;; delete line
+  (if rm-mark-active
+      ;; rm delete region
+      (delete-rectangle (region-beginning) (region-end))
+    (if mark-active
+        ;; delete region
+        (delete-region (region-beginning) (region-end))
+      ;; delete line
+      (my-line-option 'del))))
 
 ;; ====my-line-option==================
 ;; ========行操作==========
@@ -72,20 +78,22 @@
 (defun my-line-option (option)
   "cut,copy,delete option with the current line"
   (interactive)
-  (let ((origional nil)					; 定义origional,beg,end局部变量
-		(beg nil)
-		(end nil))
-	(setq origional (point))
-	  (beginning-of-line)
-	  (setq beg (point))
-	  (end-of-line)
-	  (setq end (point))
-	  (if (eq 'cpy option)				; option=cpy 复制当前行，恢复光标位置并给出提示信息
-		  (progn (kill-ring-save beg end)		
-				 (goto-char origional)
-				 (message "copyed the whole line"))
-	  (if (eq 'cut option)				; option=cut 剪切当行
-		  (kill-region beg end)
-		(if (eq 'del option)			; option=del 删除当前行
-			(delete-region beg end)
-		  (error "Wrong argument!"))))))
+    (save-excursion
+    ;; 定义origional,beg,end局部变量
+    (let ((beg nil)
+          (end nil))
+      (beginning-of-line)
+      (setq beg (point))
+      (end-of-line)
+      (setq end (point))
+      (if (eq 'cpy option)				
+          ;; option=cpy 复制当前行
+          (progn (kill-ring-save beg end)		
+                   (message "copyed the whole line"))
+        (if (eq 'cut option)				
+            ;; option=cut 剪切当行
+            (kill-region beg end)
+          (if (eq 'del option)			
+              ;; option=del 删除当前行
+              (delete-region beg end)
+            (error "Wrong argument!")))))))
